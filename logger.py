@@ -49,7 +49,7 @@ headers = {
 data = {"roomid": room_id}
 
 nowtime = time.time()
-log_last_create_time = nowtime
+log_create_time = nowtime
 log_last_save_time = nowtime
 
 # Open log file
@@ -58,12 +58,12 @@ try:
 except FileExistsError:
     pass
 log_file_read = open(
-    f"./logs/danmaku{int(log_last_create_time)}.log", mode="r", encoding="utf-8"
+    f"./logs/danmaku{int(log_create_time)}.log", mode="r", encoding="utf-8"
 )
 log_list = log_file_read.readlines()
 log_file_read.close()
 log_file_write = open(
-    f"./logs/danmaku{int(log_last_create_time)}.log", mode="a", encoding="utf-8"
+    f"./logs/danmaku{int(log_create_time)}.log", mode="a", encoding="utf-8"
 )
 
 while 1:
@@ -74,18 +74,18 @@ while 1:
     if len(log_list) > log_list_max_length:
         log_list = log_list[-log_list_expected_length:]  # Shorten the list
 
-    if nowtime - log_last_create_time > log_file_create_interval:
+    if nowtime - log_create_time > log_file_create_interval:
         # Create new log file
         log_file_write.close()
-        log_last_create_time = nowtime
+        log_create_time = nowtime
         log_file_write = open(
-            f"./logs/danmaku{int(log_last_create_time)}.log", mode="a", encoding="utf-8"
+            f"./logs/danmaku{int(log_create_time)}.log", mode="a", encoding="utf-8"
         )
     elif nowtime - log_last_save_time > log_file_save_interval:
         # Save log file
         log_file_write.close()
         log_file_write = open(
-            f"./logs/danmaku{int(log_last_create_time)}.log", mode="a", encoding="utf-8"
+            f"./logs/danmaku{int(log_create_time)}.log", mode="a", encoding="utf-8"
         )
         log_last_save_time = nowtime
 

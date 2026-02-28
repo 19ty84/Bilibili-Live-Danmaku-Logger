@@ -23,19 +23,19 @@ config_file.close()
 for str in config:
     try:
         key = str[: str.index("=")].strip()
-        value = int(str[str.index("=") + 1 :].strip())
+        value = str[str.index("=") + 1 :].strip()
         if key == "room_id":
-            room_id = value
+            room_id = int(value)
         elif key == "log_file_create_interval":
-            log_file_create_interval = value
+            log_file_create_interval = float(value)
         elif key == "log_file_save_interval":
-            log_file_save_interval = value
+            log_file_save_interval = float(value)
         elif key == "request_interval":
-            request_interval = value
+            request_interval = float(value)
         elif key == "log_list_max_length":
-            log_list_max_length = value
+            log_list_max_length = int(value)
         elif key == "log_list_expected_length":
-            log_list_expected_length = value
+            log_list_expected_length = int(value)
     except:
         print("Error in config.txt:")
         print("String", str, "is not valid")
@@ -57,14 +57,14 @@ try:
     os.mkdir("./logs")
 except FileExistsError:
     pass
+log_file_write = open(
+    f"./logs/danmaku{int(log_create_time)}.log", mode="a", encoding="utf-8"
+)
 log_file_read = open(
     f"./logs/danmaku{int(log_create_time)}.log", mode="r", encoding="utf-8"
 )
 log_list = log_file_read.readlines()
 log_file_read.close()
-log_file_write = open(
-    f"./logs/danmaku{int(log_create_time)}.log", mode="a", encoding="utf-8"
-)
 
 while 1:
     time.sleep(request_interval)

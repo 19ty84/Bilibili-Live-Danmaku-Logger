@@ -5,7 +5,7 @@ Gets and logs danmaku from a Bilibili live room.
 
 ### config.txt 
 
-Before running, first configure the config.txt file. Things in config.txt are like:
+Before running the program, first configure the `config.txt` file. `config.txt` looks like:
 
 ```
 room_id = 1779910052
@@ -16,7 +16,7 @@ request_interval = 3
 
 `room_id`: Int. The room ID of your target Bilibili live room. For example, if the link is `https://live.bilibili.com/1779910052`, then the room ID is 1779910052.
 
-`log_file_create_interval`: Float. Number of seconds between creating new log files.
+`log_file_create_interval`: Float. Number of seconds between creating new log files. It can be set to `inf` so that the program only creates one log file.
 
 `log_file_save_interval`: Float. Number of seconds between saving current log file.
 
@@ -28,8 +28,10 @@ request_interval = 3
 python logger.py
 ```
 
+The first logs will be logged and printed at `request_interval` seconds after the program starts.
+
 ## Logs
 
 Logs will be under `log/` directory. If the directory doesn't exist, the program will generate it.
 
-A log file named `danmaku1772302358.log` means the log starts from time 1772302358.
+Log files are named as `danmaku{time}.log`. A log file named `danmaku1772302358.log` means the log starts at time 1772302358.

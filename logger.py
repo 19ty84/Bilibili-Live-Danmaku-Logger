@@ -14,7 +14,7 @@ log_file_create_interval = DEFAULT_LOG_FILE_CREATE_INTERVAL
 log_file_save_interval = DEFAULT_LOG_FILE_SAVE_INTERVAL
 request_interval = DEFAULT_REQUEST_INTERVAL
 log_list_max_length = DEFAULT_LOG_LIST_MAX_LENGTH
-log_list_expected_length = DEFAULT_LOG_LIST_MAX_LENGTH
+log_list_expected_length = DEFAULT_LOG_LIST_EXPECTED_LENGTH
 
 # Read config file
 config_file = open("./config.txt", mode="r", encoding="utf-8")

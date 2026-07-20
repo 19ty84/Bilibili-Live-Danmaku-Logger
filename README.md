@@ -1,3 +1,8 @@
+# This is the older version of [Bilibili-Live-Danmaku-Logger-V2](https://github.com/19ty84/Bilibili-Live-Danmaku-Logger-V2)
+To create log files in .csv format and logging emoticons, please visit [Bilibili-Live-Danmaku-Logger-V2](https://github.com/19ty84/Bilibili-Live-Danmaku-Logger-V2).
+
+------------
+
 # Bilibili-Live-Danmaku-Logger
 Gets and logs danmaku from a Bilibili live room.
 
